@@ -1,13 +1,17 @@
 <div class="h-screen flex justify-center mt-28">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 mx-auto">
     @for(emoji of emojis; track emoji.id){
-      <div class="p-4 border rounded">
-        <h3 class="text-lg font-bold">{{ emoji.name }}</h3>
-        <h3 class="text-lg">{{ emoji.category }}</h3>
-        <div [innerHTML]="joinHtmlCodes(emoji.htmlCode)" class="mt-2 text-4xl"></div>
+      <div class="p-6 border rounded bg-white shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 max-w-xs">
+
+        <div class="flex justify-center space-x-16 mb-4">
+          <div class="bg-blue-200 rounded-2xl py-1 px-4 text-center">{{ emoji.category }}</div>
+          <button class="bg-blue-200 py-1 px-4 rounded-2xl hover:bg-blue-600 hover:text-white focus:outline-none" (click)="copyEmoji(emoji.htmlCode)">Copiar</button>
+        </div>
+
+
+        <h3 class="text-xl font-bold mb-2 text-center">{{ emoji.name }}</h3>
+        <div [innerHTML]="joinHtmlCodes(emoji.htmlCode)" class="mt-2 text-4xl text-center"></div>
       </div>
     }
   </div>
 </div>
-
-
