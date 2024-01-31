@@ -1,6 +1,13 @@
-@for(emoji of emojis; track emoji.id){
-  <h3>{{ emoji.id }}</h3>
-  <h3>{{ emoji.name }}</h3>
-  <div [innerHTML]="joinHtmlCodes(emoji.htmlCode)"></div>
-  <br>
-}
+<div class="h-screen flex justify-center mt-28">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 mx-auto">
+    @for(emoji of emojis; track emoji.id){
+      <div class="p-4 border rounded">
+        <h3 class="text-lg font-bold">{{ emoji.name }}</h3>
+        <h3 class="text-lg">{{ emoji.category }}</h3>
+        <div [innerHTML]="joinHtmlCodes(emoji.htmlCode)" class="mt-2 text-4xl"></div>
+      </div>
+    }
+  </div>
+</div>
+
+
