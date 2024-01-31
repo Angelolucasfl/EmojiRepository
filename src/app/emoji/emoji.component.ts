@@ -16,11 +16,15 @@ export class EmojiComponent implements OnInit{
     this.fetchEmojis();
   }
 
-  fetchEmojis(){
+  fetchEmojis() {
     this.http.get("https://emojihub.yurace.pro/api/all/category/flags")
-    .subscribe((emojis: any) => {
-      console.log(emojis);
-      this.emojis = emojis;
-    })
+      .subscribe((emojis: any) => {
+        console.log(emojis);
+        this.emojis = emojis;
+      })
+  }
+
+  joinHtmlCodes(htmlCodes: string[]): string {
+    return htmlCodes.join('');
   }
 }
