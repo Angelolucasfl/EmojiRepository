@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Category } from '../shared/types';
 
 @Component({
   selector: 'app-emoji',
@@ -12,6 +13,7 @@ import { Component, OnInit, inject } from '@angular/core';
 export class EmojiComponent implements OnInit{
   constructor() { }
 
+  @Input() category?: Category;
   http = inject(HttpClient);
   emojis: any = [];
 

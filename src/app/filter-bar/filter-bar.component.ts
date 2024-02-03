@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Category } from '../shared/types';
 
 @Component({
   selector: 'app-filter-bar',
@@ -11,7 +12,7 @@ import { Component } from '@angular/core';
 
 export class FilterBarComponent {
 
-  emojis = [
+  categories = [
     { pt: "Todas", en: "All" },
     { pt: "Carinhas", en: "smileys-and-people" },
     { pt: "Bandeiras", en: "flags" },
@@ -22,4 +23,9 @@ export class FilterBarComponent {
     { pt: "Comidas e Bebidas", en: "food-and-drink" },
     { pt: "Animais e Natureza", en: "animals-and-nature" },
   ];
+  @Output() sendCategory = new EventEmitter<Category>();
+
+  selectCategory(categoria: Category) {
+    this.sendCategory.emit(categoria);
+  }
 }
