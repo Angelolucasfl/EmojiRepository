@@ -10,16 +10,6 @@ import { Component } from '@angular/core';
 
 
 export class FilterBarComponent {
-  categories = {
-    "smileys-and-people": "Carinhas",
-    "flags": "Bandeiras",
-    "symbols": "Símbolos",
-    "objects": "Objetos",
-    "activities": "Atividades",
-    "travel-and-places": "Viagens e Lugares",
-    "food-and-drink": "Comidas e Bebidas",
-    "animals-and-nature": "Animais e Natureza"
-  };
 
   categorias = [
     "Todas",
