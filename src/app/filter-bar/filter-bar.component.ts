@@ -11,16 +11,15 @@ import { Component } from '@angular/core';
 
 export class FilterBarComponent {
 
-  categorias = [
-    "Todas",
-    "Carinhas",
-    "Bandeiras",
-    "Símbolos",
-    "Objetos",
-    "Atividades",
-    "Viagens e Lugares",
-    "Comidas e Bebidas",
-    "Animais e Natureza"
-  ]
-
+  emojis = [
+    { pt: "Todas", en: "All" },
+    { pt: "Carinhas", en: "smileys-and-people" },
+    { pt: "Bandeiras", en: "flags" },
+    { pt: "Símbolos", en: "symbols" },
+    { pt: "Objetos", en: "objects" },
+    { pt: "Atividades", en: "activities" },
+    { pt: "Viagens e Lugares", en: "travel-and-places" },
+    { pt: "Comidas e Bebidas", en: "food-and-drink" },
+    { pt: "Animais e Natureza", en: "animals-and-nature" },
+  ];
 }

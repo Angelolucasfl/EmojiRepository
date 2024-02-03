@@ -1,9 +1,9 @@
 <div class="filter-bar">
   <h2 class="text-lg font-bold mb-2">Categorias</h2>
   <ul class="space-y-2">
-    @for (category of categorias; track categorias) {
+    @for (emoji of emojis; track emoji) {
       <li>
-        <a href="#" class="block bg-blue-200 hover:bg-blue-600 hover:text-white px-4 py-2 rounded max-w-xs">{{ category }}</a>
+        <a href="#" class="block bg-blue-200 hover:bg-blue-600 hover:text-white px-4 py-2 rounded max-w-xs">{{ emoji.pt }}</a>
       </li>
     }
   </ul>
