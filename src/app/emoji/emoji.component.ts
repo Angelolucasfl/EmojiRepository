@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, inject, SimpleChanges  } from '@angular/core';
 import { Category } from '../shared/types';
 
 @Component({
@@ -10,23 +10,38 @@ import { Category } from '../shared/types';
   styleUrl: './emoji.component.css'
 })
 
-export class EmojiComponent implements OnInit{
+export class EmojiComponent implements OnInit, OnChanges{
   constructor() { }
 
   @Input() category?: Category;
   http = inject(HttpClient);
   emojis: any = [];
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['category'] && !changes['category'].firstChange) {
+      this.fetchEmojis();
+    }
+  }
+
+
   ngOnInit(): void {
     this.fetchEmojis();
   }
 
   fetchEmojis() {
-    this.http.get("https://emojihub.yurace.pro/api/all/category/flags")
-      .subscribe((emojis: any) => {
-        console.log(emojis);
-        this.emojis = emojis || [];
-      });
+    if (this.category && this.category.en !== "All") {
+      this.http.get(`https://emojihub.yurace.pro/api/all/category/${this.category.en}`)
+        .subscribe((emojis: any) => {
+          console.log(emojis);
+          this.emojis = emojis || [];
+        });
+    } else {
+      this.http.get("https://emojihub.yurace.pro/api/all")
+        .subscribe((emojis: any) => {
+          console.log(emojis);
+          this.emojis = emojis || [];
+        });
+    }
   }
 
   joinHtmlCodes(htmlCodes: string[]): string {
