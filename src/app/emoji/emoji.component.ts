@@ -53,13 +53,21 @@ export class EmojiComponent implements OnInit, OnChanges{
       const emojiCharacter = this.convertHtmlToEmoji(this.joinHtmlCodes(htmlCode));
 
       navigator.clipboard.writeText(emojiCharacter).then(() => {
-        console.log('Emoji copiado para a área de transferência:', emojiCharacter);
+        this.showCopySuccessMessage();
       }).catch((error) => {
-        console.error('Erro ao copiar o emoji para a área de transferência:', error);
+        this.showCopyErrorMessage();
       });
     } catch (error) {
       console.error('Erro ao copiar o emoji:', error);
     }
+  }
+
+  showCopySuccessMessage(): void {
+    alert('Emoji copiado para a área de transferência!');
+  }
+
+  showCopyErrorMessage(): void {
+    alert('Erro ao copiar o emoji para a área de transferência. Por favor, tente novamente.');
   }
 
   convertHtmlToEmoji(htmlCode: string): string {

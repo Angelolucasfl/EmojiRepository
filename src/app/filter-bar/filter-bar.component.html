@@ -1,9 +1,9 @@
-<div class="filter-bar">
-  <h2 class="text-lg font-bold mb-2">Categorias</h2>
-  <ul class="space-y-2">
+<div>
+  <h2 class="text-2xl font-bold mb-4">Categorias</h2>
+  <ul class="space-y-4">
     @for (category of categories; track category) {
       <li>
-        <a href="#" (click)="selectCategory(category)" class="block bg-blue-200 hover:bg-blue-600 hover:text-white px-4 py-2 rounded max-w-xs">{{ category.pt }}</a>
+        <a href="#" (click)="selectCategory(category)" class="block bg-white hover:bg-blue-600 hover:text-white px-4 py-3 rounded max-w-xs">{{ category.pt }}</a>
       </li>
     }
   </ul>
